@@ -6,103 +6,85 @@
 -->
 <html>
 	<head>
-		<title>Prism by TEMPLATED</title>
+    <title>{{ .Title }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="{{ "assets/js/ie/html5shiv.js" | absURL }}"></script><![endif]-->
+		<link rel="stylesheet" href="{{ "assets/css/main.css" | absURL }}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{{ "assets/css/ie9.css" | absURL }}" /><![endif]-->
+    {{ .Hugo.Generator }}
 	</head>
 	<body>
 
 		<!-- Banner -->
 			<section id="banner">
 				<div class="inner split">
+        {{ with .Site.Params.hero }}
 					<section>
-						<h2>Welcome to Prism, a free responsive site template by <a href="http://templated.co">TEMPLATED</a></h2>
+						<h2>{{ .header | markdownify }}</h2>
 					</section>
 					<section>
-						<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Phasellus aliquam et tempus lorem dolor feugiat adipiscing lorem.</p>
+            <p>{{ .description | markdownify }}</p>
 						<ul class="actions">
-							<li><a href="#" class="button special">Get started</a></li>
+              <li><a href="{{ .buttonURL }}" class="button special">{{ .buttonText }}</a></li>
 						</ul>
 					</section>
+        {{ end }}
 				</div>
 			</section>
 
 		<!-- One -->
 			<section id="one" class="wrapper">
 				<div class="inner split">
+				{{ with .Site.Params.one }}
 					<section>
-						<h2>Magna feugiat adipiscing</h2>
-						<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus aliquam et tempus lorem feugiat adipiscing lorem. Morbi pharetra vitae felis placerat pharetra. Nulla risus orci, dapibus id malesuada et nec, malesuada quis orci. Pellentesque eget consequat.</p>
+						<h2>{{ .header }}</h2>
+						<p>{{ .paragraph }}</p>
 						<ul class="actions">
-							<li><a href="#" class="button alt">Learn more</a></li>
+							<li><a href="{{ .buttonURL }}" class="button alt">{{ .buttonText }}</a></li>
 						</ul>
 					</section>
 					<section>
 						<ul class="checklist">
-							<li>Ipsum nisl sed cursus magna</li>
-							<li>Amet veroeros sed aliquam consequat</li>
-							<li>Tempus lorem adipiscing et lorem</li>
-							<li>Morbi pharetra vitae felis placerat</li>
-							<li>Pharetra nulla risus orci dapibus</li>
+						{{ range .checklist }}
+							<li>{{ . }}</li>
+						{{ end }}
 						</ul>
 					</section>
+				{{ end }}
 				</div>
 			</section>
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2 alt">
 				<div class="inner">
+				{{ range .Site.Params.spotlight }}
 					<div class="spotlight">
 						<div class="image">
-							<img src="images/pic01.jpg" alt="" />
+							<img src="{{ .imageSrc | absURL }}" alt="{{ .imageAlt }}" />
 						</div>
 						<div class="content">
-							<h3>Ipsum pharetra tempus</h3>
-							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
+							<h3>{{ .title }}</h3>
+							<p>{{ .description }}</p>
 							<ul class="actions">
-								<li><a href="#" class="button alt">Details</a></li>
+								<li><a href="{{ .buttonURL }}" class="button alt">{{ .buttonText }}</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="spotlight">
-						<div class="image">
-							<img src="images/pic02.jpg" alt="" />
-						</div>
-						<div class="content">
-							<h3>Magna consequat felis</h3>
-							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
-							<ul class="actions">
-								<li><a href="#" class="button alt">Details</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="spotlight">
-						<div class="image">
-							<img src="images/pic03.jpg" alt="" />
-						</div>
-						<div class="content">
-							<h3>Vitae placerat adipiscing</h3>
-							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
-							<ul class="actions">
-								<li><a href="#" class="button alt">Details</a></li>
-							</ul>
-						</div>
-					</div>
+				{{ end }}
 					<ul class="actions special">
 						<li><a href="#" class="button alt">Ipsum magna tempus</a></li>
 					</ul>
 				</div>
 			</section>
 
+			{{ with .Site.Params.contact }}
 		<!-- Contact -->
 			<section id="contact" class="wrapper">
 				<div class="inner split">
 					<section>
-						<h2>Orci malesuada</h2>
-						<p>Morbi pharetra vitae felis placerat pharetra. Nulla risus orci, dapibus id malesuada et nec, malesuada quis pellentesque eget.</p>
+						<h2>{{ .header }}</h2>
+						<p>{{ .description }}</p>
 						<form action="#" class="alt" method="POST">
 							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
@@ -122,15 +104,17 @@
 					</section>
 					<section>
 						<ul class="contact">
-							<li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-							<li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
-							<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-							<li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
-							<li class="fa-home">1234 Somewhere Road Suite 9823<br/>Nashville, TN 00000-0000</li>
+						{{ range .social }}
+							<li class="fa-{{ .icon }}"><a href="{{ .href }}">{{ .text }}</a></li>
+						{{ end }}
+						{{ with .address }}
+							<li class="fa-{{ .icon }}">{{ .address }}<br/>{{ .locality }}, {{ .region }} {{ .postal }}</li>
+						{{ end }}
 						</ul>
 					</section>
 				</div>
 			</section>
+			{{ end }}
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -140,11 +124,11 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="{{ "assets/js/jquery.min.js" | absURL }}"></script>
+			<script src="{{ "assets/js/skel.min.js" | absURL }}"></script>
+			<script src="{{ "assets/js/util.js" | absURL }}"></script>
+			<!--[if lte IE 8]><script src="{{ "assets/js/ie/respond.min.js" | absURL }}"></script><![endif]-->
+			<script src="{{ "assets/js/main.js" | absURL }}"></script>
 
 	</body>
 </html>

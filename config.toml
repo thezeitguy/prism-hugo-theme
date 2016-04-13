@@ -1,3 +1,82 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Prism, a responsive site template"
+
+[params]
+something = "something"
+
+[params.hero]
+header = "Welcome to Prism, a free responsive HTML site template. by [TEMPLATED](http://templated.co)"
+description = "Prism was designed by [TEMPLATED](http://templated.co) and adapted to a [Hugo](http://gohugo.io) theme by [Branch Web Presence](https://www.branchwebpresence.com/)."
+buttonText = "Get started"
+buttonURL = "#"
+
+[params.one]
+header = "Magna feugiat adipiscing"
+paragraph = "Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus aliquam et tempus lorem feugiat adipiscing lorem. Morbi pharetra vitae felis placerat pharetra. Nulla risus orci, dapibus id malesuada et nec, malesuada quis orci. Pellentesque eget consequat."
+buttonText = "Learn more"
+buttonURL = "#"
+checklist = [ "Ipsum nisl sed cursus magna",
+              "Amet veroeros sed aliquam consequat",
+              "Tempus lorem adipiscing et lorem",
+              "Morbi pharetra vitae felix placerat",
+              "Pharetra nulla risus orci dapibus" ]
+
+[params.two]
+buttonText = "Ipsum magna tempus"
+buttonURL = "#"
+
+[[params.spotlight]]
+title = "Ipsum pharetra tempus"
+description = "Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat."
+buttonText = "Details"
+buttonURL = "#"
+imageSrc = "images/pic01.jpg"
+imageAlt = "pic 01"
+
+[[params.spotlight]]
+title = "Magna consequat felis"
+description = "Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat."
+buttonText = "Details"
+buttonURL = "#"
+imageSrc = "images/pic02.jpg"
+imageAlt = "pic 02"
+
+[[params.spotlight]]
+title = "Vitae placerat adipiscing"
+description = "Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat."
+buttonText = "Details"
+buttonURL = "#"
+imageSrc = "images/pic03.jpg"
+imageAlt = "pic 03"
+
+[params.contact]
+title = "Orci malesuada"
+description = "Morbi pharetra vitae felis placerat pharetra. Nulla risus orci, dapibus id malesuada et nec, malesuada quis pellentesque eget."
+
+[[params.contact.social]]
+icon = "twitter"
+href = "#"
+text = "twitter.com/untitled-tld"
+
+[[params.contact.social]]
+icon = "facebook"
+href = "#"
+text = "facebook.com/untitled-tld"
+
+[[params.contact.social]]
+icon = "instagram"
+href = "#"
+text = "instagram.com/untitled-tld"
+
+[[params.contact.social]]
+icon = "envelope"
+href = "info@untitled.tld"
+text = "information@untitled.tld"
+
+[params.contact.address]
+icon = "home"
+address = "1234 Somewhere Road Suite 9823"
+locality = "Nashville"
+region = "TN"
+postal = "00000-0000"
